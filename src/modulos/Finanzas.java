@@ -17,7 +17,8 @@ package modulos;
  * - FACTURAS DE COMPRAS
  * - PAGOS Y VENCIMIENTOS
  * - GASTOS FIJOS
- * 
+ * - LISTAS DE PRECIOS
+ * - CUENTAS CORRIENTES
  */
 public class Finanzas {
     

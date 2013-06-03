@@ -12,6 +12,7 @@ package modulos;
  * - FACTURACION
  * - VENDEDORES
  * - COMISIONES
+ * - CLIENTES (ALTA, BAJA Y MODIFICACION)
  * 
  */
 public class Ventas {
