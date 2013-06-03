@@ -17,4 +17,5 @@ package config;
  */
 public class Manager {
     
+    
 }
