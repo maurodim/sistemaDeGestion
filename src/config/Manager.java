@@ -4,6 +4,11 @@
  */
 package config;
 
+import interfaces.Archivar;
+import modulos.Configuraciones;
+
+
+
 /**
  *
  * @author mauro
@@ -15,7 +20,16 @@ package config;
  * 
  * 
  */
-public class Manager {
+public class Manager{
+
+    public Manager() {
+        Archivar conf=new Configuraciones();
+        conf.leerArchivo("/archivos//Wfer.txt");
+        
+    }
+    
+
+  
     
     
 }
