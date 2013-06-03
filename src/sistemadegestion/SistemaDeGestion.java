@@ -4,6 +4,7 @@
  */
 package sistemadegestion;
 
+import interfacesGraficas.BienvenidoAlSistema3M;
 import interfacesGraficas.Login;
 
 /**
@@ -16,7 +17,8 @@ public class SistemaDeGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Login log=new Login();
-        log.setVisible(true);
+       BienvenidoAlSistema3M ini=new BienvenidoAlSistema3M();
+       ini.setVisible(true);
+        
     }
 }
