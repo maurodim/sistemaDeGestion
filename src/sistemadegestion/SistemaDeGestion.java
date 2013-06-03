@@ -4,6 +4,8 @@
  */
 package sistemadegestion;
 
+import interfacesGraficas.Login;
+
 /**
  *
  * @author mauro
@@ -14,6 +16,7 @@ public class SistemaDeGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Login log=new Login();
+        log.setVisible(true);
     }
 }
