@@ -59,7 +59,13 @@ public class ConeccionI implements Conectar{
 
     @Override
     public Boolean cerrarConeccion(Connection cnn) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            cnn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConeccionI.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
 }

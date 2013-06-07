@@ -5,6 +5,7 @@
 package modulos;
 
 import config.Coneccion;
+import config.ConeccionI;
 import interfaces.Archivar;
 import interfaces.Conectar;
 import java.io.BufferedReader;
@@ -131,9 +132,14 @@ public class Configuraciones implements Archivar{
                 }
                 System.out.println(linea);
                 numer++;
-                Conectar con=new Coneccion();
+                Conectar con=new ConeccionI();
                 Connection ccn=con.obtenerConeccionString();
-                Statement st=con.obtenerStatement(ccn);
+                Statement st=null;
+                try {
+                    st = ccn.createStatement();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 String sql="select * from coneccionesGestion where numero="+config.getNumeroPermiso();
                 try {
                     st.execute(sql);
@@ -147,8 +153,8 @@ public class Configuraciones implements Archivar{
                         
                     }
                     rs.close();
-                    //st.close();
-                    con.cerrarStatement(st);
+                    st.close();
+                    //con.cerrarStatement(st);
                     con.cerrarConeccion(ccn);
                 } catch (SQLException ex) {
                     Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
