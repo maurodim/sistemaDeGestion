@@ -26,7 +26,8 @@ public class Manager{
         Archivar conf=new Configuraciones();
         Configuraciones conff=new Configuraciones();
         conff=(Configuraciones) conf.leerArchivo("/archivos//Wfer.txt");
-        System.out.println();
+        
+        System.out.println(conff.getNumeroPermiso()+" /ventas "+conff.getModuloVentas()+" /fecha "+conff.getFechaLlave());
         
     }
     

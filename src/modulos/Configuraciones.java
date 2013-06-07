@@ -31,79 +31,79 @@ import java.util.logging.Logger;
  * 
  */
 public class Configuraciones implements Archivar{
-    private static String usuario;
-    private static String fechaLlave;
-    private static int numeroPermiso;
-    private static Boolean moduloVentas;
-    private static Boolean moduloCompras;
-    private static Boolean moduloAdministracion;
-    private static Boolean moduloFinanzas;
-    private static Boolean moduloRecursosHumanos;
+    private String usuario;
+    private String fechaLlave;
+    private int numeroPermiso;
+    private Boolean moduloVentas;
+    private Boolean moduloCompras;
+    private Boolean moduloAdministracion;
+    private Boolean moduloFinanzas;
+    private Boolean moduloRecursosHumanos;
 
-    public static String getFechaLlave() {
+    public String getFechaLlave() {
         return fechaLlave;
     }
 
-    public static void setFechaLlave(String fechaLlave) {
-        Configuraciones.fechaLlave = fechaLlave;
+    public void setFechaLlave(String fechaLlave) {
+        this.fechaLlave = fechaLlave;
     }
 
-    public static Boolean getModuloAdministracion() {
+    public Boolean getModuloAdministracion() {
         return moduloAdministracion;
     }
 
-    public static void setModuloAdministracion(Boolean moduloAdministracion) {
-        Configuraciones.moduloAdministracion = moduloAdministracion;
+    public void setModuloAdministracion(Boolean moduloAdministracion) {
+        this.moduloAdministracion = moduloAdministracion;
     }
 
-    public static Boolean getModuloCompras() {
+    public Boolean getModuloCompras() {
         return moduloCompras;
     }
 
-    public static void setModuloCompras(Boolean moduloCompras) {
-        Configuraciones.moduloCompras = moduloCompras;
+    public void setModuloCompras(Boolean moduloCompras) {
+        this.moduloCompras = moduloCompras;
     }
 
-    public static Boolean getModuloFinanzas() {
+    public Boolean getModuloFinanzas() {
         return moduloFinanzas;
     }
 
-    public static void setModuloFinanzas(Boolean moduloFinanzas) {
-        Configuraciones.moduloFinanzas = moduloFinanzas;
+    public void setModuloFinanzas(Boolean moduloFinanzas) {
+        this.moduloFinanzas = moduloFinanzas;
     }
 
-    public static Boolean getModuloRecursosHumanos() {
+    public Boolean getModuloRecursosHumanos() {
         return moduloRecursosHumanos;
     }
 
-    public static void setModuloRecursosHumanos(Boolean moduloRecursosHumanos) {
-        Configuraciones.moduloRecursosHumanos = moduloRecursosHumanos;
+    public void setModuloRecursosHumanos(Boolean moduloRecursosHumanos) {
+        this.moduloRecursosHumanos = moduloRecursosHumanos;
     }
 
-    public static Boolean getModuloVentas() {
+    public Boolean getModuloVentas() {
         return moduloVentas;
     }
 
-    public static void setModuloVentas(Boolean moduloVentas) {
-        Configuraciones.moduloVentas = moduloVentas;
+    public void setModuloVentas(Boolean moduloVentas) {
+        this.moduloVentas = moduloVentas;
     }
 
-    public static int getNumeroPermiso() {
+    public int getNumeroPermiso() {
         return numeroPermiso;
     }
 
-    public static void setNumeroPermiso(int numeroPermiso) {
-        Configuraciones.numeroPermiso = numeroPermiso;
+    public void setNumeroPermiso(int numeroPermiso) {
+        this.numeroPermiso = numeroPermiso;
     }
 
-    public static String getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public static void setUsuario(String usuario) {
-        Configuraciones.usuario = usuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
-    
+
     
 
     @Override
@@ -119,13 +119,13 @@ public class Configuraciones implements Archivar{
                 linea=entrada.readLine();
                 switch (numer){
                     case 0:
-                    config.usuario=linea;
+                    config.setUsuario(linea);
                     break;
                     case 1:
-                    config.fechaLlave=linea;
+                    config.setFechaLlave(linea);
                         break;
                     case 2:
-                        config.numeroPermiso=Integer.parseInt(linea);
+                        config.setNumeroPermiso(Integer.parseInt(linea));
                         break;
                         
                 }
@@ -134,16 +134,16 @@ public class Configuraciones implements Archivar{
                 Conectar con=new Coneccion();
                 Connection ccn=con.obtenerConeccionString();
                 Statement st=con.obtenerStatement(ccn);
-                String sql="select * from coneccionesGestion where numero="+config.numeroPermiso;
+                String sql="select * from coneccionesGestion where numero="+config.getNumeroPermiso();
                 try {
                     st.execute(sql);
                     ResultSet rs=st.getResultSet();
                     while(rs.next()){
-                        if(rs.getInt("moduloVentas")==1)config.moduloVentas=true;
-                        if(rs.getInt("moduloCompras")==1)config.moduloCompras=true;
-                        if(rs.getInt("moduloAdministracion")==1)config.moduloAdministracion=true;
-                        if(rs.getInt("moduloFinanzas")==1)config.moduloFinanzas=true;
-                        if(rs.getInt("moduloRecursosHumanos")==1)config.moduloRecursosHumanos=true;
+                        if(rs.getInt("moduloVentas")==1)config.setModuloVentas(true);
+                        if(rs.getInt("moduloCompras")==1)config.setModuloCompras(true);
+                        if(rs.getInt("moduloAdministracion")==1)config.setModuloAdministracion(true);
+                        if(rs.getInt("moduloFinanzas")==1)config.setModuloFinanzas(true);
+                        if(rs.getInt("moduloRecursosHumanos")==1)config.setModuloRecursosHumanos(true);
                         
                     }
                     rs.close();
