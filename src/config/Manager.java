@@ -24,7 +24,9 @@ public class Manager{
 
     public Manager() {
         Archivar conf=new Configuraciones();
-        conf.leerArchivo("/archivos//Wfer.txt");
+        Configuraciones conff=new Configuraciones();
+        conff=(Configuraciones) conf.leerArchivo("/archivos//Wfer.txt");
+        System.out.println();
         
     }
     
