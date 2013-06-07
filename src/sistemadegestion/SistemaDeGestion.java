@@ -4,9 +4,13 @@
  */
 package sistemadegestion;
 
+import config.Manager;
+import interfacesGraficas.BienvenidoAlSistema3M;
+import interfacesGraficas.Login;
+
 /**
  *
- * @author Administrador
+ * @author mauro
  */
 public class SistemaDeGestion {
 
@@ -14,6 +18,7 @@ public class SistemaDeGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Manager man=new Manager();
+        
     }
 }
