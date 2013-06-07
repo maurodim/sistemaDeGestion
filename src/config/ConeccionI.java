@@ -14,15 +14,16 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mauro
+ * @author Administrador
  */
-public class Coneccion implements Conectar{
-       private String base="jdbc:mysql://201.235.253.65:3306/maurodim_sistemaDeGestion";
+public class ConeccionI implements Conectar{
+         private String base="jdbc:mysql://201.235.253.65:3306/maurodim_net";
     private String stringDeConeccion;
     private String driver="com.mysql.jdbc.Driver";
     private String usuario="maurodim";
     private String clave="mau*2012";
     private static Connection cn=null;
+
 
     @Override
     public Connection obtenerConeccionString() {
@@ -47,17 +48,17 @@ public class Coneccion implements Conectar{
     }
 
     @Override
+    public Statement obtenerStatement(Connection cnn) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
     public Boolean cerrarStatement(Statement st) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public Boolean cerrarConeccion(Connection cnn) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Statement obtenerStatement(Connection cnn) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
